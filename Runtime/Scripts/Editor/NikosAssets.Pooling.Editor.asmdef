@@ -1,0 +1,19 @@
+{
+    "name": "NikosAssets.Pooling.Editor",
+    "rootNamespace": "NikosAssets.Pooling.Editor",
+    "references": [
+        "GUID:606650d169a1b564dbf6c12ede620a48",
+        "GUID:615f25033bca5694cb373e5797a4dca7"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

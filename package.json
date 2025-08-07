@@ -1,0 +1,12 @@
+{
+  "name": "com.nikosassets.pooling",
+  "displayName": "NikosAssets.Pooling",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "keywords": [],
+  "samples": [],
+  "author": {
+    "name": "Nikodem Grzonkowski"
+  },
+  "description": "Pool short-lived objects like projectiles or long-lived objects like environment props or entities."
+}
