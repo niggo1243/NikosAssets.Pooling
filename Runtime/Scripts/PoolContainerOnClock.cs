@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace NikosAssets.Pooling
 {
+    /// <summary>
+    /// A poolcontainer for short-lived items
+    /// </summary>
+    /// <typeparam name="TPoolItemOnClock"></typeparam>
     public class PoolContainerOnClock<TPoolItemOnClock> : PoolContainer<TPoolItemOnClock>
         where TPoolItemOnClock : Component, IPoolItemOnClock
     {

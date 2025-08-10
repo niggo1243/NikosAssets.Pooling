@@ -179,7 +179,7 @@ where TPoolItemMarker : BasePoolItemMarker<TPoolMarkerManager, TPoolItemMarker>
     protected BaseBiomeItem _poolBiomeItem;
 
     [ShowNativeProperty]
-    protected bool _isOccupied { get; set; }
+    protected bool IsOccupied { get; set; }
     
     protected SubSceneToOwnerChunkReference _chunkReference;
     [ShowNativeProperty]
@@ -197,7 +197,7 @@ where TPoolItemMarker : BasePoolItemMarker<TPoolMarkerManager, TPoolItemMarker>
     protected override void OnEnable()
     {
         _poolBiomeItem = ((EnvironmentPoolItem) DesignatedPoolItem).BaseBiomeItem;
-        _isOccupied = true;
+        IsOccupied = true;
         
         ChunkReference.OnLocalSubScenesLoaded += OnLocalSubScenesLoaded;
         if (_chunkReference.SubChunksLoaded)
@@ -208,12 +208,12 @@ where TPoolItemMarker : BasePoolItemMarker<TPoolMarkerManager, TPoolItemMarker>
     {
         _chunkReference.OnLocalSubScenesLoaded -= OnLocalSubScenesLoaded;
         _poolBiomeItem = null;
-        _isOccupied = false;
+        IsOccupied = false;
     }
     
     protected void OnLocalSubScenesLoaded()
     {
-        if (!_isOccupied)
+        if (!IsOccupied)
             return;
 
         _poolBiomeItem.isPooled = true;
@@ -261,22 +261,18 @@ public class EnvironmentPoolItem : SimplePoolItemMono
 
     public override void PoolingReset()
     {
-        //base.PoolingReset();
-        
-        //we dont toggle the biomeitem here, as the subchunks should do it!
+        base.PoolingReset();
         _isOccupied = true;
     }
 
     public override void Deactivate()
     {
-        //probably because the world is unloading
+        //probably because the world is unloading - useful in some cases but here just an example/ reminder that it exists as long as the base OnDestroy is called!
         if (CancellationTokenSource.IsCancellationRequested)
             return;
 
         _isOccupied = false;
-
-        //when switching to menu or quitting app, this causes null ref exceptions...
-        //base.Deactivate();
+        base.Deactivate();
     }
 }
 ```

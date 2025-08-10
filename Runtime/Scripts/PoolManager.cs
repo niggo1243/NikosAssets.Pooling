@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace NikosAssets.Pooling
 {
+    /// <summary>
+    /// Manages a bunch of pool containers separated by pool keys 
+    /// </summary>
     public class PoolManager
     {
         private Dictionary<string, IPoolContainer> _poolContainersMap = new Dictionary<string, IPoolContainer>();
@@ -26,6 +29,20 @@ namespace NikosAssets.Pooling
         public void RegisterPoolContainer(string key, IPoolContainer poolContainer)
         {
             _poolContainersMap.Add(key, poolContainer);
+        }
+
+        public bool TryUnregisterPoolContainer(string key)
+        {
+            if (!_poolContainersMap.ContainsKey(key))
+                return false;
+            
+            UnregisterPoolContainer(key);
+            return true;
+        }
+        
+        public void UnregisterPoolContainer(string key)
+        {
+            _poolContainersMap.Remove(key);
         }
 
         public bool TryGetPoolContainer<TPoolContainer>(string key, out TPoolContainer poolContainer)

@@ -6,6 +6,14 @@ using UnityEngine;
 
 namespace NikosAssets.Pooling.Marker
 {
+    /// <summary>
+    /// Manages the <typeparamref name="TPoolItem"/>s assigned to/ occupied by the <typeparamref name="TPoolItemMarker"/>s withing the respective <typeparamref name="TPoolContainer"/>s.
+    /// Spawns new <typeparamref name="TPoolItem"/>s for markers requesting some or pools them if any are available in the <typeparamref name="TPoolContainer"/>s. 
+    /// </summary>
+    /// <typeparam name="TPoolItem"></typeparam>
+    /// <typeparam name="TPoolContainer"></typeparam>
+    /// <typeparam name="TPoolItemMarker"></typeparam>
+    /// <typeparam name="TPoolMarkerManager"></typeparam>
     public abstract class BasePoolMarkerManager<TPoolItem, TPoolContainer, TPoolItemMarker, TPoolMarkerManager> : BasePoolMarkerManagerWrapper<TPoolMarkerManager, TPoolItemMarker>, IDisposable
         where TPoolItem : Component, IPoolItem
         where TPoolContainer : PoolContainer<TPoolItem>, new()

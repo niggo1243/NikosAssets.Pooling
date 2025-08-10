@@ -1,10 +1,8 @@
-using NaughtyAttributes;
-using NikosAssets.Helpers;
 
 namespace NikosAssets.Pooling.Marker
 {
     /// <summary>
-    /// Marks an object for a pool item
+    /// A ready to use class that marks an object for a pool item
     /// </summary>
     public class SimplePoolItemMarker : BasePoolItemMarker<SimplePoolMarkerManager, SimplePoolItemMarker>
     {
